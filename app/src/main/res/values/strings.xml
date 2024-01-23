@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Vaccine Reminder</string>
+    <string name="no_entity_description">Oops!\nNo entity created.\nTap + to add.</string>
+    <string name="entity_entry_title">Add Entity</string>
+    <string name="entity_detail_title">Entity Details</string>
+    <string name="edit_entity_title">Edit Entity</string>
+    <string name="back_button">Back</string>
+    <string name="add_button">Add Entity</string>
+    <string name="save_action">Save</string>
+    <string name="attention">Attention</string>
+    <string name="entity_name_req">Entity Name*</string>
+    <string name="delete_question">Are you sure you want to delete?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="required_fields">*required fields</string>
+    <string name="delete">Delete</string>
+    <string name="entity">Entity</string>
+    <string name="sell">Sell</string>
+</resources>
