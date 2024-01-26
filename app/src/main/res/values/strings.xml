@@ -1,18 +1,32 @@
 <resources>
     <string name="app_name">Vaccine Reminder</string>
-    <string name="no_entity_description">Oops!\nNo entity created.\nTap + to add.</string>
-    <string name="entity_entry_title">Add Entity</string>
-    <string name="entity_detail_title">Entity Details</string>
-    <string name="edit_entity_title">Edit Entity</string>
+
+    <string name="no_vaccine_description">Oops!\nNo vaccine added.\nTap + to add.</string>
+
+
+    <string name="vaccine_entry_title">Add a vaccine</string>
+    <string name="vaccine_detail_title">Vaccine Details</string>
+    <string name="edit_vaccine_title">Edit vaccine</string>
     <string name="back_button">Back</string>
-    <string name="add_button">Add Entity</string>
+
+    <string name="add_button">Add vaccine</string>
     <string name="save_action">Save</string>
+
     <string name="attention">Attention</string>
-    <string name="entity_name_req">Entity Name*</string>
-    <string name="delete_question">Are you sure you want to delete?</string>
-    <string name="no">No</string>
-    <string name="yes">Yes</string>
+
+    <string name="entity_name_req">To who ?*</string>
+    <string name="vaccine_name_req">Which vaccine ?*</string>
     <string name="required_fields">*required fields</string>
+
+    <string name="entity_name">Who :</string>
+    <string name="vaccine_name">Vaccine :</string>
+    <string name="date">Date :</string>
+
+    <string name="delete_question">Are you sure you want to delete?</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
     <string name="delete">Delete</string>
     <string name="entity">Entity</string>
     <string name="sell">Sell</string>

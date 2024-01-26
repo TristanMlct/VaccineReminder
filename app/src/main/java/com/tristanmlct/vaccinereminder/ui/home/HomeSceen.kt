@@ -22,19 +22,21 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tristanmlct.vaccinereminder.R
 import com.tristanmlct.vaccinereminder.VaccineReminderTopBar
 import com.tristanmlct.vaccinereminder.data.Entity
+import com.tristanmlct.vaccinereminder.ui.AppViewModelProvider
 import com.tristanmlct.vaccinereminder.ui.navigation.NavigationDestination
-import com.tristanmlct.vaccinereminder.ui.theme.VaccineReminderTheme
 
 object HomeDestination : NavigationDestination {
     override val route = "home"
@@ -50,9 +52,11 @@ object HomeDestination : NavigationDestination {
 fun HomeScreen(
     navigateToEntityEntry: () -> Unit,
     navigateToEntityUpdate: (Int) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val homeUiState by viewModel.HomeUiState.collectAsState()
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -77,7 +81,7 @@ fun HomeScreen(
         }
     ) {innerPadding ->
         HomeBody(
-            entityList = listOf(),
+            entityList = homeUiState.entityList,
             onEntityClick = navigateToEntityUpdate,
             modifier = modifier
                 .padding(innerPadding)
@@ -98,7 +102,7 @@ private fun HomeBody(
     ) {
         if (entityList.isEmpty()) {
             Text(
-                text = stringResource(R.string.no_item_description),
+                text = stringResource(R.string.no_vaccine_description),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge
             )
@@ -120,7 +124,7 @@ private fun EntityList(
 ) {
     LazyColumn(modifier = modifier) {
         items(items = entityList, key = { it.id }) {entity ->
-            EntityItem(
+            VaccineReminderItem(
                 entity = entity,
                 modifier = Modifier
                     .padding(dimensionResource(id = R.dimen.padding_small))
@@ -131,7 +135,7 @@ private fun EntityList(
 }
 
 @Composable
-private fun EntityItem(
+private fun VaccineReminderItem(
     entity: Entity,
     modifier: Modifier = Modifier
 ) {

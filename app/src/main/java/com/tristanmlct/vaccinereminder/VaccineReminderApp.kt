@@ -2,6 +2,9 @@
 
 package com.tristanmlct.vaccinereminder
 
+import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -20,9 +23,10 @@ import com.tristanmlct.vaccinereminder.ui.navigation.VaccineReminderNavHost
 /**
  * Top level composable
  */
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun VaccineReminderApp(navController: NavHostController = rememberNavController()) {
-    VaccineReminderNavHost(navController = navController)
+fun VaccineReminderApp(context: Context,  navController: NavHostController = rememberNavController()) {
+    VaccineReminderNavHost(context = context, navController = navController)
 }
 
 /**
